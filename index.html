@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raagame2 Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        .button {
+            background-color: #008cba;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #005f75;
+        }
+
+        .card {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .log-entry {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Raagame2 Admin Dashboard</h1>
+    </div>
+
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><button class="button" onclick="refreshGameLog()">Game Log</button></li>
+            <li><button class="button" onclick="viewAnalytics()">Analytics</button></li>
+        </ul>
+    </div>
+
+    <div class="main-content" id="content">
+        <h2>Welcome Admin!</h2>
+        <div class="card">
+            <h3>Active Game</h3>
+            <p id="active-game">Detecting...</p>
+        </div>
+        <div class="card">
+            <h3>Player List</h3>
+            <div id="player-list">Waiting for players...</div>
+        </div>
+    </div>
+
+    <!-- Include Photon.js -->
+    <script src="photon.js"></script>
+
+    <script>
+        function refreshGameLog() {
+            document.getElementById('player-list').innerHTML = 'Updating...';
+            updatePhotonData(); // Calls Photon function to update player list
+        }
+
+        function viewAnalytics() {
+            document.getElementById('content').innerHTML = `
+                <h2>Analytics</h2>
+                <div class="card">
+                    <p>Feature to display game analytics goes here.</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
